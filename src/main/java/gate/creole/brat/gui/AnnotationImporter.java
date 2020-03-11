@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ import gate.creole.metadata.CreoleResource;
 import gate.gui.MainFrame;
 import gate.gui.NameBearerHandle;
 import gate.gui.ResourceHelper;
+import gate.util.DocumentFormatException;
 import gate.util.ExtensionFileFilter;
 
 @CreoleResource(name = "brat Annotation Importer", tool = true, autoinstances = @AutoInstance, comment = "Add brat annotations to a loaded document")
@@ -71,7 +73,7 @@ public class AnnotationImporter extends ResourceHelper {
 							Document doc = (Document) handle.getTarget();
 							Annotations annots = new Annotations((new File(txtFileName.getText())).toURI().toURL());
 							BratDocumentFormat.merge(doc, txtAnnSetName.getText(), annots);
-						} catch (Exception e) {
+						} catch (IOException | DocumentFormatException e) {
 							e.printStackTrace();
 						}
 					}
