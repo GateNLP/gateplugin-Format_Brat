@@ -96,13 +96,10 @@ public class BratDocumentFormat extends TextualDocumentFormat {
     // removes the paragraph annotations added by the text/plain mimetype
     original.clear();
 
-    BufferedReader in = null;
     try {
       merge(original, new Annotations(annURL));
     } catch(Exception ioe) {
       throw new DocumentFormatException(ioe);
-    } finally {
-      if(in != null) IOUtils.closeQuietly(in);
     }
   }
 
