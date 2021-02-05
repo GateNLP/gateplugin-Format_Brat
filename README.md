@@ -10,6 +10,10 @@ the `.txt` file and that, extension excepting, the files share the same name.
 Now load the `.txt` file into GATE in any of the normal ways specifying
 `text/x-brat` as the MIME type.
 
+You can also load extra sets of brat format annotations onto an existing document
+through the GUI by right clicking on a document and choosing _Import brat Annotations..._.
+This allows you to select a file of brat standoff annotations and the annotation
+set into which they should be imported.
 
 ## Saving Documents
 
